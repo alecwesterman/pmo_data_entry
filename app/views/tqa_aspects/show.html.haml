@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tqa_aspect.name
+%p
+  %b Percent run:
+  = @tqa_aspect.percent_run
+%p
+  %b Percent pass:
+  = @tqa_aspect.percent_pass
+
+= link_to 'Edit', edit_tqa_aspect_path(@tqa_aspect)
+\|
+= link_to 'Back', tqa_aspects_path

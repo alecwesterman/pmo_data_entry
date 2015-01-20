@@ -1,0 +1,28 @@
+%h1 TQA Progress
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th % Run
+      %th % Passed
+      %th
+      %th
+      %th
+      %th
+
+  %tbody
+    - @tqa_aspects.each do |tqa_aspect|
+      %tr
+        %td= tqa_aspect.name
+        %td= tqa_aspect.percent_run
+        %td= tqa_aspect.percent_pass
+        %td= 3
+
+        %td= link_to 'Show', tqa_aspect
+        %td= link_to 'Edit', edit_tqa_aspect_path(tqa_aspect)
+        %td= link_to 'Destroy', tqa_aspect, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New TQA Metric', new_tqa_aspect_path

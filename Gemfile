@@ -13,6 +13,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'haml-rails'
 gem 'mysql2'
+gem 'pry'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

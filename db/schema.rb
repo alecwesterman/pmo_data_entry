@@ -11,12 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119232453) do
+ActiveRecord::Schema.define(version: 20150120170307) do
 
   create_table "tqa_aspects", force: true do |t|
     t.string   "name"
-    t.float    "percent_run",  limit: 24
-    t.float    "percent_pass", limit: 24
+    t.float    "percent_run",     limit: 24
+    t.float    "percent_pass",    limit: 24
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "tqa_category_id"
+  end
+
+  add_index "tqa_aspects", ["tqa_category_id"], name: "index_tqa_aspects_on_tqa_category_id", using: :btree
+
+  create_table "tqa_categories", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

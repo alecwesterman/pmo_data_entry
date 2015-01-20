@@ -1,26 +1,29 @@
 %h1 TQA Progress
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th % Run
-      %th % Passed
-      %th
-      %th
-      %th
+- @tqa_categories.each do |tqa_category|
+  %b= tqa_category.name
 
-  %tbody
-    - @tqa_aspects.each do |tqa_aspect|
+  %table
+    %thead
       %tr
-        %td= tqa_aspect.name
-        %td= tqa_aspect.percent_run
-        %td= tqa_aspect.percent_pass
-        %td
-          %div{ style: "height:15px;width:104px;border-style:solid;border-width:1px;padding-left:-10px"}
-            %div{ style: "float:left;background-color:#62c462;height:13px;width:#{tqa_aspect.percent_pass}%;"}
-        %td= link_to 'Edit', edit_tqa_aspect_path(tqa_aspect)
-        %td= link_to 'Destroy', tqa_aspect, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Area
+        %th % Run
+        %th % Passed
+        %th
+        %th
+        %th
+
+      %tbody
+        - tqa_category.tqa_aspects.each do |tqa_aspect|
+          %tr
+            %td= tqa_aspect.name
+            %td= tqa_aspect.percent_run
+            %td= tqa_aspect.percent_pass
+            %td
+              %div{ style: "height:15px;width:104px;border-style:solid;border-width:1px;padding-left:-10px"}
+                %div{ style: "float:left;background-color:#62c462;height:13px;width:#{tqa_aspect.percent_pass}%;"}
+            %td= link_to 'Edit', edit_tqa_aspect_path(tqa_aspect)
+            %td= link_to 'Destroy', tqa_aspect, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 = link_to 'New TQA Metric', new_tqa_aspect_path

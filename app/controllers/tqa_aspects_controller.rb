@@ -5,6 +5,8 @@ class TqaAspectsController < ApplicationController
 
   def index
     @tqa_aspects = TqaAspect.all
+    @tqa_categories = TqaCategory.all
+
     respond_with(@tqa_aspects)
   end
 
@@ -13,20 +15,24 @@ class TqaAspectsController < ApplicationController
   end
 
   def new
+    @tqa_categories = TqaCategory.all
     @tqa_aspect = TqaAspect.new
     respond_with(@tqa_aspect)
   end
 
   def edit
+    @tqa_categories = TqaCategory.all
   end
 
   def create
+    @tqa_categories = TqaCategory.all
     @tqa_aspect = TqaAspect.new(tqa_aspect_params)
     @tqa_aspect.save
     respond_with(@tqa_aspect)
   end
 
   def update
+    @tqa_categories = TqaCategory.all
     @tqa_aspect.update(tqa_aspect_params)
     respond_with(@tqa_aspect)
   end
@@ -42,6 +48,6 @@ class TqaAspectsController < ApplicationController
     end
 
     def tqa_aspect_params
-      params.require(:tqa_aspect).permit(:name, :percent_run, :percent_pass)
+      params.require(:tqa_aspect).permit(:name, :percent_run, :percent_pass, :tqa_category_id)
     end
 end

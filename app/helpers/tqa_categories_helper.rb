@@ -1,0 +1,2 @@
+module TqaCategoriesHelper
+end

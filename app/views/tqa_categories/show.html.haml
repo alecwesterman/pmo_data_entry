@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @tqa_category.name
+
+= link_to 'Edit', edit_tqa_category_path(@tqa_category)
+\|
+= link_to 'Back', tqa_categories_path

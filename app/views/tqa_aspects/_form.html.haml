@@ -20,7 +20,10 @@
     =# f.collection_select :country_id, Country.all, :id, :name
     =# f.collection_select :tqa_category_id, @tqa_categories, :id, :name
     =# f.select(:tqa_category_id,  @tqa_categories.map {|p| [p.name,p.id]})
-    = f.select(:tqa_category_id, @tqa_categories.map {|p| [p.name,p.id]}, :selected => @tqa_categories.first.id)
+    - if @tqa_aspect.tqa_category
+      = f.select(:tqa_category_id, @tqa_categories.map {|p| [p.name,p.id]}, :selected => @tqa_aspect.tqa_category.id)
+    - else
+      = f.select(:tqa_category_id, @tqa_categories.map {|p| [p.name,p.id]}, :selected => @tqa_categories.first.id)
 
 
   .actions

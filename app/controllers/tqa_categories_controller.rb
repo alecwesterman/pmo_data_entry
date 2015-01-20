@@ -23,12 +23,12 @@ class TqaCategoriesController < ApplicationController
   def create
     @tqa_category = TqaCategory.new(tqa_category_params)
     @tqa_category.save
-    respond_with(@tqa_category)
+    redirect_to(tqa_categories_path)
   end
 
   def update
     @tqa_category.update(tqa_category_params)
-    respond_with(@tqa_category)
+    redirect_to(tqa_categories_path)
   end
 
   def destroy

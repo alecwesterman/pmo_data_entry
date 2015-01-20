@@ -28,13 +28,13 @@ class TqaAspectsController < ApplicationController
     @tqa_categories = TqaCategory.all
     @tqa_aspect = TqaAspect.new(tqa_aspect_params)
     @tqa_aspect.save
-    respond_with(@tqa_aspect)
+    redirect_to(tqa_aspects_path)
   end
 
   def update
     @tqa_categories = TqaCategory.all
     @tqa_aspect.update(tqa_aspect_params)
-    respond_with(@tqa_aspect)
+    redirect_to(tqa_aspects_path)
   end
 
   def destroy

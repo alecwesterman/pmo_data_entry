@@ -20,9 +20,9 @@
             %td= tqa_aspect.percent_run
             %td= tqa_aspect.percent_pass
             %td
-              %div{ style: "height:15px;width:104px;border-style:solid;border-width:1px;padding-left:-10px"}
-                %div{ style: "float:left;background-color:#ee5f5b;height:13px;width:#{tqa_aspect.portion_failed_testing}%;"}
-                %div{ style: "float:left;background-color:#62c462;height:13px;width:#{tqa_aspect.portion_passed_testing}%;"}
+              %div{ style: "height:15px;width:300px;border-style:solid;border-width:1px;padding-left:-10px"}
+                %div{ style: "float:left;background-color:#5C00B8;height:14px;width:#{tqa_aspect.portion_failed_testing}%;"}
+                %div{ style: "float:left;background-color:#8533D6;height:14px;width:#{tqa_aspect.portion_passed_testing}%;"}
             %td= link_to 'Edit', edit_tqa_aspect_path(tqa_aspect)
             %td= link_to 'Destroy', tqa_aspect, :method => :delete, :data => { :confirm => 'Are you sure?' }
 

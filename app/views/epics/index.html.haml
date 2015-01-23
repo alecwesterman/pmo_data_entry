@@ -2,19 +2,19 @@
 %br
 
 %div{ style: "float:left;"} Open:
-%div{ class: "key-color-sample", style: "background-color:Red;"}
+%div{ class: "key-color-sample", style: "background-color:#5200A3;"}
 %div{ style: "float:left;"} In Progress:
-%div{ class: "key-color-sample", style: "background-color:Yellow;"}
+%div{ class: "key-color-sample", style: "background-color:#6600CC;"}
 %div{ style: "float:left;"} Reopened:
-%div{ class: "key-color-sample", style: "background-color:Orange;"}
+%div{ class: "key-color-sample", style: "background-color:#8533D6;"}
 %div{ style: "float:left;"} Resolved:
-%div{ class: "key-color-sample", style: "background-color:Brown;"}
+%div{ class: "key-color-sample", style: "background-color:#A366E0;"}
 %div{ style: "float:left;"} QA Ready:
-%div{ class: "key-color-sample", style: "background-color:Blue;"}
+%div{ class: "key-color-sample", style: "background-color:#C299EB;"}
 %div{ style: "float:left;"} Client Review:
-%div{ class: "key-color-sample", style: "background-color:Purple;"}
+%div{ class: "key-color-sample", style: "background-color:#E0CCF5;"}
 %div{ style: "float:left;"} Closed:
-%div{ class: "key-color-sample", style: "background-color:Green;"}
+%div{ class: "key-color-sample", style: "background-color:#FFFFFF;"}
 %br
 %br
 
@@ -34,17 +34,17 @@
           %div{ class: "epic-graph-section"}
             -if statuses_sum && statuses_sum >0
               -if statuses["Open"]
-                %div{ class: "epic-graph", style: "background-color:Red;width:#{(statuses["Open"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#5200A3;width:#{(statuses["Open"]/statuses_sum)*100}%;"}
               -if statuses["In Progress"]
-                %div{ class: "epic-graph", style: "background-color:Yellow;width:#{(statuses["In Progress"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#6600CC;width:#{(statuses["In Progress"]/statuses_sum)*100}%;"}
               -if statuses["Reopened"]
-                %div{ class: "epic-graph", style: "background-color:Orange;width:#{(statuses["Reopened"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#8533D6;width:#{(statuses["Reopened"]/statuses_sum)*100}%;"}
               -if statuses["Resolved"]
-                %div{ class: "epic-graph", style: "background-color:Brown;width:#{(statuses["Resolved"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#A366E0;width:#{(statuses["Resolved"]/statuses_sum)*100}%;"}
               -if statuses["QA Ready"]
-                %div{ class: "epic-graph", style: "background-color:Blue;width:#{(statuses["QA Ready"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#C299EB;width:#{(statuses["QA Ready"]/statuses_sum)*100}%;"}
               -if statuses["Client Review"]
-                %div{ class: "epic-graph", style: "background-color:Purple;width:#{(statuses["Client Review"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#E0CCF5;width:#{(statuses["Client Review"]/statuses_sum)*100}%;"}
               -if statuses["Closed"]
-                %div{ class: "epic-graph", style: "background-color:Green;width:#{(statuses["Closed"]/statuses_sum)*100}%;"}
+                %div{ class: "epic-graph", style: "background-color:#FFFFFF;width:#{(statuses["Closed"]/statuses_sum)*100}%;"}
 %br

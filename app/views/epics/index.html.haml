@@ -1,0 +1,32 @@
+%h1 Epics
+
+%table
+  %thead
+    %tr
+      %th Epic Names
+      %th
+
+  %tbody
+    - @epics.each do |epic|
+      - statuses = epic[:issue_statuses]
+      - statuses_sum = statuses.values.sum.to_f
+      %tr
+        %td= epic[:key]
+        %td
+          %div{ style: "height:15px;width:104px;border-style:solid;border-width:1px;padding-left:-10px"}
+            -if statuses_sum && statuses_sum >0
+              -if statuses["Open"]
+                %div{ style: "float:left;background-color:Red;height:13px;width:#{(statuses["Open"]/statuses_sum)*100}%;"}
+              -if statuses["In Progress"]
+                %div{ style: "float:left;background-color:Yellow;height:13px;width:#{(statuses["In Progress"]/statuses_sum)*100}%;"}
+              -if statuses["Reopened"]
+                %div{ style: "float:left;background-color:Orange;height:13px;width:#{(statuses["Reopened"]/statuses_sum)*100}%;"}
+              -if statuses["Resolved"]
+                %div{ style: "float:left;background-color:Brown;height:13px;width:#{(statuses["Resolved"]/statuses_sum)*100}%;"}
+              -if statuses["QA Ready"]
+                %div{ style: "float:left;background-color:Blue;height:13px;width:#{(statuses["QA Ready"]/statuses_sum)*100}%;"}
+              -if statuses["Client Review"]
+                %div{ style: "float:left;background-color:Purple;height:13px;width:#{(statuses["Client Review"]/statuses_sum)*100}%;"}
+              -if statuses["Closed"]
+                %div{ style: "float:left;background-color:Green;height:13px;width:#{(statuses["Closed"]/statuses_sum)*100}%;"}
+%br

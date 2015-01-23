@@ -14,6 +14,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'mysql2'
 gem 'pry'
+gem 'rest_client'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_21]

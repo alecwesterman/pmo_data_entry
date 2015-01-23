@@ -110,6 +110,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.2)
+    netrc (0.7.9)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -144,6 +145,8 @@ GEM
       json (~> 1.4)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
+    rest_client (1.8.3)
+      netrc (~> 0.7.7)
     ruby_parser (3.6.4)
       sexp_processor (~> 4.1)
     sass (3.2.19)
@@ -211,6 +214,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.5)
   rails_layout
+  rest_client
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring

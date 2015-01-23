@@ -1,41 +1,6 @@
 class Epics
 
-  def project_list
-    project_url = "https://jira.movenetworks.com/rest/api/2/issue/createmeta"
-    response = RestClient::Request.new(
-        :method => :get,
-        :url => project_url,
-        :user => 'awesterman@qwinixtech.com',
-        :password => '1Limburger',
-        :headers => { :accept => :json,:content_type => :json},
-    ).execute
-    project_list = JSON.parse(response.to_str)
-    project_array = []
-    project_list["projects"].each do |project|
-      project_hash = {name: '', issuetypes: []}
-      project_hash[:name] = project["name"]
-      project["issuetypes"].each do |issuetype|
-        project_hash[:issuetypes] << issuetype["name"]
-      end
-      project_array << project_hash
-    end
-    project_array
-  end
-
   def epic_list
-    epic_url = "https://jira.movenetworks.com/rest/api/2/search?jql=issuetype=Epic"
-    response = RestClient::Request.new(
-    :method => :get,
-    :url => epic_url,
-    :user => 'awesterman@qwinixtech.com',
-    :password => '1Limburger',
-    :headers => { :accept => :json,:content_type => :json},
-    ).execute
-    epic_list = JSON.parse(response.to_str)
-    epic_array = []
-    epic_list["issues"].each do |project|
-      epic_array << project["key"]
-    end
     epic_hash_array = []
     epic_array.each do |key|
       epic_hash = {key: key, issue_statuses: nil}
@@ -57,5 +22,24 @@ class Epics
       epic_hash_array << epic_hash
     end
     epic_hash_array
+  end
+
+  private
+
+  def epic_array
+    epic_url = "https://jira.movenetworks.com/rest/api/2/search?jql=issuetype=Epic"
+    response = RestClient::Request.new(
+    :method => :get,
+    :url => epic_url,
+    :user => 'awesterman@qwinixtech.com',
+    :password => '1Limburger',
+    :headers => { :accept => :json,:content_type => :json},
+    ).execute
+    epic_list = JSON.parse(response.to_str)
+    epic_array = []
+    epic_list["issues"].each do |project|
+      epic_array << project["key"]
+    end
+    epic_array
   end
 end

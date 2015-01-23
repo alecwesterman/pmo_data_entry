@@ -8,7 +8,6 @@ class EpicsController < ApplicationController
   def index
     @epics = ::Epics.new.epic_list
 
-
     respond_with(@epics)
   end
 end
